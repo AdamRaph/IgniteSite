@@ -1,0 +1,56 @@
+﻿@*@using Microsoft.Azure;
+@using Microsoft.WindowsAzure.Storage;
+@using Microsoft.WindowsAzure.Storage.Table;
+
+@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Attendee Finder";
+    bool search = false;
+    var attendee = "Default";
+    var message = "";
+    bool failSearch = false;
+    string[] keys = Request.Form.AllKeys;
+    <p>hi</p>
+    for (int i = 0; i < keys.Length; i++)
+    {
+       <p>@keys[i]</p>
+    }
+
+}
+
+
+<hgroup class="title">
+    <h1>@Page.Title</h1>
+</hgroup>
+
+
+<article>
+
+   
+        {
+            <p>@message</p>
+            <form method="get">
+                <br>Attendee ID:
+                <input type="text" name="attID">
+                <br>Attendee Name:
+                <input type="text" name="attName">
+                <br>Attendee Company:
+                <input type="text" name="attCompany">
+                <br>Attendee Ticket Type:
+                <input type="text" name="ticketType">
+                <br>Attendee Ticket Quantity:
+                <input type="text" name="ticketQuantity">
+                <br />
+                <input type="submit" value="Search" />
+            </form>
+        }
+    
+</article>
+
+<aside>
+    <h3>Support</h3>
+    <p>
+        <a href="mailto:adamraph@microsoft.com">adamraph@microsoft.com</a>
+    </p>
+</aside>
+*@

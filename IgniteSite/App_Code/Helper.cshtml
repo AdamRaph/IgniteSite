@@ -1,0 +1,37 @@
+﻿@helper DisplayAttendees(Attendee attendee)
+{
+    <h3><font color="green">Displaying Results for @attendee.name</font></h3>
+    <br />
+    <p><b>Member ID:</b> @attendee.memberID</p>
+
+    if (attendee.company != "")
+    {
+            <p><b>Company:</b> '@attendee.company'</p>
+    }
+
+    if (attendee.jobTitle != "")
+    {
+            <p><b>Job Title:</b> @attendee.jobTitle</p>
+    }
+
+    <p><b>Ticket Type:</b> @attendee.ticketType</p>
+    <p><b>Ticket Quantity:</b> @attendee.ticketQuantity</p>
+}
+
+@helper EditAttendee(Attendee attendee)
+{
+    <form method="post" id="editForm=" action="~/Edit">
+        <br>Attendee ID:
+        <input type="text" name="attID" readonly value="@attendee.memberID">
+        <br>Attendee Name:
+        <input type="text" name="attName" value="@attendee.name">
+        <br>Attendee Company:
+        <input type="text" name="attCompany" value="@attendee.company">
+        <br>Attendee Ticket Type:
+        <input type="text" name="ticketType" readonly value="@attendee.ticketType">
+        <br>Attendee Ticket Quantity:
+        <input type="text" name="ticketQuantity" readonly value="@attendee.ticketQuantity">
+        <br />
+        <input type="button" value="Edit"/>
+    </form>
+}
